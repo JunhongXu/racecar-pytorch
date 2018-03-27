@@ -1,0 +1,21 @@
+<launch>
+    <!--<arg file="$(find bsu_racecar)/Launch/includes/vesc.yaml">-->
+
+    <!--</arg>-->
+    <rosparam command="load" file="$(find bsu_racecar)/Launch/includes/vesc.yaml"/>
+    <rosparam command="load" file="$(find bsu_racecar)/Launch/includes/racecar.yaml" />
+    <include file="$(find vesc_ackermann)/launch/ackermann_to_vesc_node.launch" />
+    <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+    <include file="$(find zed_wrapper)/launch/zed.launch"/>
+    <node pkg="bsu_racecar" type="lidar_test" name="lidar_test" />
+    <node pkg="bsu_racecar" type="map_to_odom.py" name="map_to_odom" />
+    <node pkg="bsu_racecar" type="odom_baselink.py" name="odom_baselink" />
+    <node pkg="bsu_racecar" type="baselink_laser.py" name="baselink_laser" />
+    <node pkg="vesc_driver" type="vesc_driver_node" name="vesc_driver" />
+    <node pkg="bsu_racecar" type="controller.py" name="controller" output="screen"/>
+    <!--<node pkg="ps3joy" type="ps3joy.py" name="ps3joy_node" output="screen" launch-prefix="sudo"/>-->
+    <node pkg="joy" type="joy_node" name="joy" output="screen"/>
+    <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+        <param name="odom" value="/zed/odom"/>
+    </node>
+</launch>

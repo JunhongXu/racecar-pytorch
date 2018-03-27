@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="bsu_racecar" type="detector.py" name="yolo_detector" cwd="node" output="screen"/>
+	<include file="$(find zed_wrapper)/launch/zed.launch" />
+</launch>

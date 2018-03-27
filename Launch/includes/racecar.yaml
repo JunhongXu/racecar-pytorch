@@ -1,0 +1,31 @@
+# Topics for racecar teleop module.
+# Every topic has an action, every action is defined by its type (mannual or auto), switch button, and index of
+# speed and angular speed.
+
+
+racecar:
+  # race car parameters
+  human_control:
+    type: topic
+    message_type: ackermann_msgs/AckermannDriveStamped
+    topic_name: ackermann_cmd 
+    actions:
+      type: mannual
+      deadman_button: 8 # L2
+      speed_axis: 1
+      angular_axis: 2
+      shift: -0.045 # adjust steering angles
+
+
+
+  neural_control:
+    type: topic
+    message_type: ackermann_msgs/AckermannDriveStamped
+    topic_name: ackermann_cmd
+    actions:
+      type: auto
+      deadman_button: 6
+      speed_axis: 0
+      angular_axis: 1
+      shift: -0.045 # adjust steering angles
+
