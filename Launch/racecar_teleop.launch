@@ -13,7 +13,7 @@
     <node pkg="bsu_racecar" type="baselink_laser.py" name="baselink_laser" />
     <node pkg="vesc_driver" type="vesc_driver_node" name="vesc_driver" />
     <node pkg="bsu_racecar" type="controller.py" name="controller" output="screen"/>
-    <!--<node pkg="ps3joy" type="ps3joy.py" name="ps3joy_node" output="screen" launch-prefix="sudo"/>-->
+    <node pkg="bsu_racecar" type="recorder.py" name="recorder" output="screen"/>
     <node pkg="joy" type="joy_node" name="joy" output="screen"/>
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
         <param name="odom" value="/zed/odom"/>

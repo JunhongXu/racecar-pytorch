@@ -1,0 +1,6 @@
+<launch>
+	<rosparam command="load" file="$(find bsu_racecar)/Launch/includes/racecar.yaml" />
+	<node pkg="bsu_racecar" type="recorder.py" name="recorder" cwd="node" output="screen"/>
+	<node pkg="bsu_racecar" type="cmd_server.py" name="command_server" output="screen"/>
+	<node pkg="joy" type="joy_node" name="joy"/>
+</launch>

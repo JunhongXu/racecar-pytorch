@@ -44,7 +44,8 @@ add_message_files(
    FILES
    bbox_data.msg
    bbox_array.msg
-)
+   ps3_cmd.msg
+   )
 
 ## Generate services in the 'srv' folder
 # add_service_files(

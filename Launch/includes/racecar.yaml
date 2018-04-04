@@ -29,3 +29,6 @@ racecar:
       angular_axis: 1
       shift: -0.045 # adjust steering angles
 
+recorder:
+  record_dir: ../bagfile
+  topics: ['zed/right/image_rect_color', 'scan', 'zed/depth/depth_registered', 'ackermann_cmd']
